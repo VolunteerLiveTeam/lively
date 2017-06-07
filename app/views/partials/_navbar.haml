@@ -1,2 +1,10 @@
 %nav.navbar.sticky-top.navbar-inverse.bg-inverse
   %a.navbar-brand{:href => "/"} lively
+  %ul.navbar-nav.justify-content-end
+    %li.nav-item
+      - if user_signed_in?
+        %span.navbar-text
+          = succeed current_user.name do
+            Signed in as /u/
+      - else
+        = link_to "Sign In", user_reddit_omniauth_authorize_path, class: 'nav-link'

@@ -16,6 +16,17 @@ gem 'turbolinks', '~> 5'
 # Use Redis adapter to run Action Cable in production
 gem 'redis', '~> 3.0'
 
+# Use MongoDB
+gem 'mongoid', '~> 6.1'
+# Devise handles logins
+gem 'devise', '~> 4.3'
+# Reddit oauth gem
+gem 'omniauth-oauth2', '1.3.1'
+gem 'omniauth-reddit', :git => 'git://github.com/jackdempsey/omniauth-reddit.git'
+
+# Load config from .env
+gem 'dotenv-rails', '~> 2.2.1'
+
 group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
 end
