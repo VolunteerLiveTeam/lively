@@ -24,4 +24,8 @@ class User
       user.name = auth.info.name
     end
   end
+
+  def display_name
+    "/u/#{name}"
+  end
 end
