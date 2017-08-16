@@ -1,5 +1,9 @@
-%h1= t('.title')
-%ul
-- @teams.each do |team|
-  %li
-    = link_to t('.select', team: team.name), select_team_path(team)
+.container.content
+  %h1= t('.title')
+  .row
+    - @teams.each do |team|
+      .col-4
+        .card{width: '100%'}
+          %img.card-img-top{src: team.icon_url}
+          .card-body
+            = link_to t('.select', team: team.name), select_team_path(team)
