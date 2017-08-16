@@ -12,7 +12,7 @@ en:
       select: "Select %{team}"
     no-selection: "You do not have a team selected."
     switched: "Switched to %{team}."
-    switch: "Switch from %{team}"
+    switch: "Switch Team"
     show:
       member_count:
         one: "1 member"

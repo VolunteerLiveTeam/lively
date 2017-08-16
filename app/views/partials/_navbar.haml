@@ -1,10 +1,14 @@
 %nav.navbar.navbar-expand-lg.navbar-light.bg-light.justify-content-between
   .navbar-nav
-    %a.navbar-brand{:href => "/"}= t(:name)
-    - unless current_team.nil?
-      = link_to t('teams.switch', team: current_team.name), teams_path, class: 'nav-item nav-link'
+    - if current_team.nil?
+      %a.navbar-brand{:href => "/"}= t(:name)
+    - else
+      = link_to root_path, class: 'navbar-brand' do
+        %img.team-icon.align-top{src: current_team.icon_url, width: 30, height: 30}
+        = current_team.name
 
   .navbar-nav
+    = link_to t('teams.switch'), teams_path, class: 'nav-item nav-link'
     - if user_signed_in?
       %span.nav-item.navbar-text= current_user.display_name
     - else
