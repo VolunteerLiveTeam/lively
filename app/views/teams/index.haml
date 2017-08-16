@@ -1,0 +1,5 @@
+%h1= t('.title')
+%ul
+- @teams.each do |team|
+  %li
+    = link_to t('.select', team: team.name), select_team_path(team)

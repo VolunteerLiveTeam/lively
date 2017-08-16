@@ -13,16 +13,20 @@ gem 'uglifier', '>= 1.3.0'
 
 # Turbolinks makes navigating pages faster
 gem 'turbolinks', '~> 5'
-# Use Redis adapter to run Action Cable in production
-gem 'redis', '~> 3.0'
 
 # Use MongoDB
 gem 'mongoid', '~> 6.1'
+# Use Redis
+gem 'redis', '~> 3.3'
+
 # Devise handles logins
 gem 'devise', '~> 4.3'
 # Reddit oauth gem
 gem 'omniauth-oauth2', '1.3.1'
 gem 'omniauth-reddit', :git => 'git://github.com/jackdempsey/omniauth-reddit.git'
+
+# Groupify for group/team management
+gem 'groupify', '~> 0.9'
 
 # Load config from .env
 gem 'dotenv-rails', '~> 2.2.1'

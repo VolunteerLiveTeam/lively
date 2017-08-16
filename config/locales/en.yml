@@ -5,3 +5,15 @@ en:
   name: "lively"
   auth:
     sign_in: "Sign In"
+  teams:
+    name: "Team Name"
+    index:
+      title: "Teams"
+      select: "Select %{team}"
+    no-selection: "You do not have a team selected."
+    switched: "Switched to %{team}."
+    switch: "Switch from %{team}"
+    show:
+      member_count:
+        one: "1 member"
+        other: "%{count} members"

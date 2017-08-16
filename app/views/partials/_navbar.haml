@@ -1,7 +1,10 @@
-%nav.navbar.navbar-light.bg-light
-  %a.navbar-brand{:href => "/"}= t(:name)
+%nav.navbar.navbar-expand-lg.navbar-light.bg-light.justify-content-between
+  .navbar-nav
+    %a.navbar-brand{:href => "/"}= t(:name)
+    - unless current_team.nil?
+      = link_to t('teams.switch', team: current_team.name), teams_path, class: 'nav-item nav-link'
 
-  .navbar-nav.justify-content-end
+  .navbar-nav
     - if user_signed_in?
       %span.nav-item.navbar-text= current_user.display_name
     - else
