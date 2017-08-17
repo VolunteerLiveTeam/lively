@@ -27,6 +27,8 @@ gem 'omniauth-reddit', :git => 'git://github.com/jackdempsey/omniauth-reddit.git
 
 # Groupify for group/team management
 gem 'groupify', '~> 0.9'
+# Scram for user authorisation
+gem 'scram', '~> 0.1'
 
 # Load config from .env
 gem 'dotenv-rails', '~> 2.2.1'
