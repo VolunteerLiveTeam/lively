@@ -1,10 +1,21 @@
+- if @event.errors.any?
+  .alert.alert-warning
+    = t('events.invalid')
+    %ul
+      - @event.errors.full_messages.each do |error|
+        %li= error
+
 = form_for @event do |f|
   .form-group
     = f.label :name, t('events.name')
     = f.text_field :name, class: 'form-control'
   .form-group
     = f.label :reddit_id, t('events.reddit_id')
-    = f.text_field :reddit_id, class: 'form-control'
+    - unless %w{edit update}.include? action_name
+      = f.text_field :reddit_id, class: 'form-control'
+    - else
+      %br
+      = link_to @event.reddit_id, @event.reddit_url
   .form-group
     = f.label :description, t('events.description')
     = f.text_area :description, class: 'form-control'

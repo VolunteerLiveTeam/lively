@@ -21,15 +21,22 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = Event.create(event_params.merge!(team: current_user.current_team))
+    @event = Event.new(params.require(:event).permit(:name, :description, :reddit_id).merge!(team: current_user.current_team))
     authorize @event
-    redirect_to @event
+    if @event.save
+      redirect_to @event
+    else
+      render 'new'
+    end
   end
 
   def update
     authorize @event
-    @event.update(event_params)
-    redirect_to @event
+    if @event.update(params.require(:event).permit(:name, :description))
+      redirect_to @event
+    else
+      render 'edit'
+    end
   end
 
   def destroy
@@ -41,10 +48,6 @@ class EventsController < ApplicationController
   private
     def get_event
       @event = Event.find(params[:id])      
-    end
-
-    def event_params
-      params.require(:event).permit(:name, :description, :reddit_id)
     end
 
 end

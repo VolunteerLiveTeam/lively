@@ -22,6 +22,8 @@ en:
     description: "Event Description"
     reddit_id: "Reddit Thread ID"
 
+    invalid: "Unable to create event."
+
     create: "Create event"
     edit: "Edit event"
     view_reddit: "View on Reddit"
