@@ -12,10 +12,12 @@
   .form-group
     = f.label :reddit_id, t('events.reddit_id')
     - unless %w{edit update}.include? action_name
-      = f.text_field :reddit_id, class: 'form-control'
+      .input-group
+        %span.input-group-addon https://reddit.com/live/
+        = f.text_field :reddit_id, class: 'form-control'
     - else
       %br
-      = link_to @event.reddit_id, @event.reddit_url
+      = link_to @event.reddit_url, @event.reddit_url
   .form-group
     = f.label :description, t('events.description')
     = f.text_area :description, class: 'form-control'
