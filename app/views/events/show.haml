@@ -1,3 +1,5 @@
-%h1= @event.name
-%h2= @event.description
-= link_to t('.reddit'), @event.reddit_url
+.container.content
+  %h1= @event.name
+  %p.lead= @event.description
+  = link_to t('events.edit'), edit_event_path(@event), class: 'btn btn-primary'
+  = link_to t('events.view_reddit'), @event.reddit_url, class: 'btn btn-link'

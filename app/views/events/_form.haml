@@ -1,11 +1,12 @@
 = form_for @event do |f|
-  = f.label :name
-  = f.text_field :name, placeholder: t('events.name')
+  .form-group
+    = f.label :name, t('events.name')
+    = f.text_field :name, class: 'form-control'
+  .form-group
+    = f.label :reddit_id, t('events.reddit_id')
+    = f.text_field :reddit_id, class: 'form-control'
+  .form-group
+    = f.label :description, t('events.description')
+    = f.text_area :description, class: 'form-control'
 
-  = f.label :description
-  = f.text_field :description, placeholder: t('events.description')
-
-  = f.label :reddit_id
-  = f.text_field :reddit_id, placeholder: t('events.reddit_id')
-
-  = f.submit
+  = f.submit class: 'btn btn-primary'

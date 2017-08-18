@@ -1,15 +1,15 @@
-%nav.navbar.navbar-expand-lg.navbar-light.bg-light.justify-content-between
+%nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.justify-content-between
   .navbar-nav
     - if current_team.nil?
       %a.navbar-brand{:href => "/"}= t(:name)
     - else
       = link_to root_path, class: 'navbar-brand' do
-        %img.team-icon.align-top{src: current_team.icon_url, width: 30, height: 30}
+        %img.rounded.align-top.mr-1{src: current_team.icon_url, width: 30, height: 30}
         = current_team.name
 
   .navbar-nav
     - if user_signed_in?
-      = link_to t('teams.switch'), teams_path, class: 'nav-item nav-link'
-      %span.nav-item.navbar-text= current_user.display_name
+      = link_to t('teams.switch'), teams_path, class: 'nav-item btn btn-outline-light mr-3'
+      %span.nav-item.navbar-text.text-light= current_user.display_name
     - else
-      = link_to t(:sign_in), user_reddit_omniauth_authorize_path, class: 'nav-item nav-link'
+      = link_to t(:sign_in), user_reddit_omniauth_authorize_path, class: 'nav-item btn btn-outline-light'
