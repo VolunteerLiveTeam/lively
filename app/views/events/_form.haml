@@ -1,0 +1,11 @@
+= form_for @event do |f|
+  = f.label :name
+  = f.text_field :name, placeholder: t('events.name')
+
+  = f.label :description
+  = f.text_field :description, placeholder: t('events.description')
+
+  = f.label :reddit_id
+  = f.text_field :reddit_id, placeholder: t('events.reddit_id')
+
+  = f.submit

@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   resources :teams do
     get 'select', on: :member # set user's current team
   end
+  resources :events
   
 end

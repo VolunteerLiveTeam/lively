@@ -17,3 +17,11 @@ en:
       member_count:
         one: "1 member"
         other: "%{count} members"
+  events:
+    name: "Event Name"
+    description: "Event Description"
+    reddit_id: "Reddit Thread ID"
+    index:
+      title: "Events"
+    show:
+      reddit: "View on Reddit"

@@ -15,9 +15,17 @@ module Scram
     DEFAULT_POLICIES << test_policy
   end
 
+  team_selection = Policy.new(name: "Team Selection", context: Team.to_s)
+  team_selection.targets.build(conditions: { :includes => { :'*members' =>  "*holder"  } }, actions: ["select"])
+  DEFAULT_POLICIES << team_selection
+
   team_management = Policy.new(name: "Team Management", context: Team.to_s)
   team_management.targets.build(conditions: { :includes => { :'*managers' =>  "*holder"  } }, actions: ["edit", "destroy"])
   DEFAULT_POLICIES << team_management
+
+  event_management = Policy.new(name: "Event Management", context: Event.to_s)
+  event_management.targets.build(conditions: { :includes => { :'*managers' =>  "*holder"  } }, actions: ["create", "edit", "destroy"])
+  DEFAULT_POLICIES << event_management
 
   DEFAULT_POLICIES.freeze
 
