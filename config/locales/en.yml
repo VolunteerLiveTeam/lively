@@ -21,6 +21,7 @@ en:
     name: "Event Name"
     description: "Event Description"
     reddit_id: "Reddit Thread ID"
+    image: "Image"
 
     invalid: "Unable to create event."
     redirect: "Click here if you aren't redirected automatically."

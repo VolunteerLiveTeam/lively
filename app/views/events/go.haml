@@ -5,7 +5,7 @@
   -# Facebook/Open Graph
   %meta{property: 'og:title', content: @event.name}
   %meta{property: 'og:description', content: @event.description}
-  %meta{property: 'og:image', content: @event.image_url}
+  %meta{property: 'og:image', content: @event.image.url(:social)}
   %meta{property: 'og:type', content: 'article'}
   %meta{property: 'og:site_name', content: @event.team.name}
 
@@ -13,7 +13,7 @@
   %meta{property: 'twitter:card', content: 'summary_large_image'}
   %meta{property: 'twitter:title', content: @event.name}
   %meta{property: 'twitter:description', content: @event.description}
-  %meta{property: 'twitter:image', content: @event.image_url}
+  %meta{property: 'twitter:image', content: @event.image.url(:social)}
   %meta{property: 'twitter:site', content: @event.team.name}
 
 .container.content

@@ -19,6 +19,9 @@
       %br
       = link_to @event.reddit_url, @event.reddit_url
   .form-group
+    = f.label :image, t('events.image')
+    = f.file_field :image, class: 'form-control'
+  .form-group
     = f.label :description, t('events.description')
     = f.text_area :description, class: 'form-control'
 

@@ -1,4 +1,5 @@
 .container.content
+  %img{src: @event.image.url}
   %h1= @event.name
   %p.lead= @event.description
   = link_to t('events.edit'), edit_event_path(@event), class: 'btn btn-primary'

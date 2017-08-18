@@ -30,6 +30,12 @@ gem 'groupify', '~> 0.9'
 # Scram for user authorisation
 gem 'scram', '~> 0.1'
 
+# Paperclip handles file uploads
+gem 'paperclip', '~> 5.1'
+gem 'mongoid-paperclip', '~> 0.0.11'
+# Files are stored in S3
+gem 'aws-sdk', '~> 2.10'
+
 # Load config from .env
 gem 'dotenv-rails', '~> 2.2.1'
 

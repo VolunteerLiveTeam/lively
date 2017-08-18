@@ -24,7 +24,7 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = Event.new(params.require(:event).permit(:name, :description, :reddit_id).merge!(team: current_user.current_team))
+    @event = Event.new(params.require(:event).permit(:name, :description, :reddit_id, :image).merge!(team: current_user.current_team))
     authorize @event
     if @event.save
       redirect_to @event
@@ -35,7 +35,7 @@ class EventsController < ApplicationController
 
   def update
     authorize @event
-    if @event.update(params.require(:event).permit(:name, :description))
+    if @event.update(params.require(:event).permit(:name, :description, :image))
       redirect_to @event
     else
       render 'edit'

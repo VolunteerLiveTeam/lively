@@ -1,5 +1,6 @@
 class Event
   include Mongoid::Document
+  include Mongoid::Paperclip
   include Scram::DSL::ModelConditions
 
   belongs_to :team
@@ -14,6 +15,12 @@ class Event
   field :reddit_id, type: String
   validates :reddit_id, presence: true, length: { is: 12 }
 
+  has_mongoid_attached_file :image, styles: {
+    :original => ['1920x1680>', :jpg],
+    :social => ['952x498#', :png]
+  }
+  validates_attachment :image, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png"] }
+  
   scram_define do
     condition :members do |event|
       event.team.send("*members")
@@ -25,11 +32,6 @@ class Event
 
   def reddit_url
     "https://reddit.com/live/#{reddit_id}"
-  end
-
-  def image_url
-    # TODO: allow image upload
-    "https://s3-eu-west-1.amazonaws.com/ollycorp/election.png"
   end
 
 end
