@@ -23,6 +23,7 @@ en:
     reddit_id: "Reddit Thread ID"
 
     invalid: "Unable to create event."
+    redirect: "Click here if you aren't redirected automatically."
 
     create: "Create event"
     edit: "Edit event"

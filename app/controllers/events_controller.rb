@@ -1,8 +1,11 @@
 class EventsController < ApplicationController
 
-  before_action :get_event, only: [:show, :edit, :update, :destroy]
+  before_action :get_event, only: [:go, :show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
   before_action :select_team, only: [:index, :new, :create]
+
+  def go
+  end
 
   def index
     @events = current_user.current_team.events

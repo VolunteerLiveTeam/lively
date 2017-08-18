@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   end
 
   root 'events#index'  
-  resources :events
+  resources :events do
+    get 'go', on: :member
+  end
   
 end

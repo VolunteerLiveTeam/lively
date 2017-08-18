@@ -1,0 +1,20 @@
+- content_for :meta do
+  -# Redirect for users
+  %meta{'http-equiv': 'refresh', 'content': "0; url=#{@event.reddit_url}"}
+
+  -# Facebook/Open Graph
+  %meta{property: 'og:title', content: @event.name}
+  %meta{property: 'og:description', content: @event.description}
+  %meta{property: 'og:image', content: @event.image_url}
+  %meta{property: 'og:type', content: 'article'}
+  %meta{property: 'og:site_name', content: @event.team.name}
+
+  -# Twitter Cards
+  %meta{property: 'twitter:card', content: 'summary_large_image'}
+  %meta{property: 'twitter:title', content: @event.name}
+  %meta{property: 'twitter:description', content: @event.description}
+  %meta{property: 'twitter:image', content: @event.image_url}
+  %meta{property: 'twitter:site', content: @event.team.name}
+
+.container.content
+  = link_to t('events.redirect'), @event.reddit_url, class: 'btn btn-primary'

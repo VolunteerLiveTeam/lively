@@ -27,4 +27,9 @@ class Event
     "https://reddit.com/live/#{reddit_id}"
   end
 
+  def image_url
+    # TODO: allow image upload
+    "https://s3-eu-west-1.amazonaws.com/ollycorp/election.png"
+  end
+
 end
