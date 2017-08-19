@@ -10,6 +10,15 @@
     = f.label :name, t('events.name')
     = f.text_field :name, class: 'form-control'
   .form-group
+    = f.label :url, t('events.url')
+    - unless %w{edit update}.include? action_name
+      .input-group
+        %span.input-group-addon https://liveteam.org/go/
+        = f.text_field :url, class: 'form-control'
+    - else
+      %br
+      = "https://liveteam.org/go/#{@event.url}"
+  .form-group
     = f.label :reddit_id, t('events.reddit_id')
     - unless %w{edit update}.include? action_name
       .input-group

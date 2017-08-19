@@ -24,7 +24,7 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = Event.new(params.require(:event).permit(:name, :description, :reddit_id, :image).merge!(team: current_user.current_team))
+    @event = Event.new(params.require(:event).permit(:name, :url, :description, :reddit_id, :image).merge!(team: current_user.current_team))
     authorize @event
     if @event.save
       redirect_to @event

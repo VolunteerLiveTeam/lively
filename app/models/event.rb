@@ -1,5 +1,6 @@
 class Event
   include Mongoid::Document
+  include Mongoid::Slug
   include Mongoid::Paperclip
   include Scram::DSL::ModelConditions
 
@@ -10,6 +11,10 @@ class Event
 
   field :description, type: String
   validates :description, presence: true, length: { minimum: 16, maximum: 120 }
+
+  field :url, type: String
+  validates :url, presence: true, length: { minimum: 4, maximum: 24 }
+  slug :url
 
   # ID of the live thread on Reddit
   field :reddit_id, type: String

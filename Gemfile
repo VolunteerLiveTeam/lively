@@ -30,6 +30,9 @@ gem 'groupify', '~> 0.9'
 # Scram for user authorisation
 gem 'scram', '~> 0.1'
 
+# mongoid-slug for pretty URLs
+gem 'mongoid-slug', '~> 5.3'
+
 # Paperclip handles file uploads
 gem 'paperclip', '~> 5.1'
 gem 'mongoid-paperclip', '~> 0.0.11'

@@ -19,6 +19,7 @@ en:
       other: "%{count} members"
   events:
     name: "Event Name"
+    url: "Event URL"
     description: "Event Description"
     reddit_id: "Reddit Thread ID"
     image: "Image"
