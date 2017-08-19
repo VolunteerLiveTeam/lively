@@ -8,12 +8,19 @@ en:
     sign_in_with_reddit: "Sign in with Reddit"
   teams:
     name: "Team Name"
-    index:
-      title: "Teams"
-      select: "Select %{team}"
+    logo: "Logo"
+    description: "Team Description"
+
+    edit: "Edit team"
+
+    invalid: "Unable to update team:"
     no-selection: "You do not have a team selected."
     switched: "Switched to %{team}."
     switch: "Switch team"
+
+    index:
+      title: "Teams"
+      select: "Select %{team}"
     member_count:
       one: "1 member"
       other: "%{count} members"
@@ -24,7 +31,7 @@ en:
     reddit_id: "Reddit Thread ID"
     image: "Image"
 
-    invalid: "Unable to create event."
+    invalid: "Unable to update event:"
     redirect: "Click here if you aren't redirected automatically."
 
     create: "Create event"

@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
-  resources :teams do
+  resources :teams, except: [:show] do
     get 'select', on: :member # set user's current team
   end
 

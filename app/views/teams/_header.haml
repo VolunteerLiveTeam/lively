@@ -1,0 +1,6 @@
+.jumbotron.jumbotron-fluid
+  .container
+    %h1= team.name
+    %p.lead= team.description
+    - if current_user.can? :edit, team
+      = link_to t('teams.edit'), edit_team_path(team), class: 'btn btn-primary'

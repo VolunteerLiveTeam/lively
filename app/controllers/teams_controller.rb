@@ -1,6 +1,6 @@
 class TeamsController < ApplicationController
 
-  before_action :get_team, only: [:select, :show, :edit, :update, :destroy]
+  before_action :get_team, only: [:select, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:index, :select, :new, :edit, :create, :update, :destroy]
 
   def index
@@ -13,9 +13,6 @@ class TeamsController < ApplicationController
     redirect_to root_path, flash: {notice: t('teams.switched', team: @team.name)}
   end
 
-  def show
-  end
-
   def new
     authorize Team
     @team = Team.new
@@ -26,15 +23,22 @@ class TeamsController < ApplicationController
   end
 
   def create
-    @team = Team.create(team_params)
+    @team = Team.new(team_params)
     authorize @team
-    redirect_to @team
+    if @team.save
+      redirect_to events_path
+    else
+      render 'new'
+    end
   end
 
   def update
     authorize @team
-    @team.update(team_params)
-    redirect_to @team
+    if @team.update(team_params)
+      redirect_to events_path
+    else
+      render 'edit'
+    end
   end
 
   def destroy
@@ -49,7 +53,7 @@ class TeamsController < ApplicationController
     end
 
     def team_params
-      params.require(:team).permit(:name, :logo)
+      params.require(:team).permit(:name, :logo, :description)
     end
 
 end

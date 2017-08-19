@@ -1,11 +1,11 @@
 %nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.justify-content-between
   .navbar-nav
-    - if current_team.nil?
+    - if @current_team.nil?
       %a.navbar-brand{:href => "/"}= t(:name)
     - else
       = link_to root_path, class: 'navbar-brand' do
-        %img.rounded.align-top.mr-1{src: current_team.logo.url(:icon), width: 30, height: 30}
-        = current_team.name
+        %img.rounded.align-top.mr-1{src: @current_team.logo.url(:icon), width: 30, height: 30}
+        = @current_team.name
 
   .navbar-nav
     - if user_signed_in?
