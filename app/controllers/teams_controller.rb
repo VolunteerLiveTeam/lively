@@ -26,6 +26,7 @@ class TeamsController < ApplicationController
     @team = Team.new(team_params)
     authorize @team
     if @team.save
+      @team.add current_user, as: :manager
       redirect_to events_path
     else
       render 'new'

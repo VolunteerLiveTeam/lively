@@ -3,6 +3,7 @@
 
 en:
   name: "lively"
+  unauthorized: "You don't have permission to do that."
   auth:
     sign_in: "Sign in"
     sign_in_with_reddit: "Sign in with Reddit"
