@@ -13,9 +13,13 @@ class TeamsController < ApplicationController
     render 'members'
   end
 
-  def update_members
+  def add_member
     authorize @team, :edit
-    raise "TODO" if params[:action] == 'add'
+    raise "TODO"
+  end
+
+  def remove_member
+    authorize @team, :edit
 
     user = User.find(params[:user])
     user.groups.destroy @team
