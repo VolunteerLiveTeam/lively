@@ -4,3 +4,4 @@
     %p.lead= team.description
     - if current_user.can? :edit, team
       = link_to t('teams.edit'), edit_team_path(team), class: 'btn btn-primary'
+      = link_to t('teams.members.manage'), list_members_team_path(team), class: 'btn btn-primary'

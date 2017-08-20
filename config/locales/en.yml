@@ -11,20 +11,25 @@ en:
     name: "Team Name"
     logo: "Logo"
     description: "Team Description"
-
     edit: "Edit team"
 
     invalid: "Unable to update team:"
     no-selection: "You do not have a team selected."
     switched: "Switched to %{team}."
     switch: "Switch team"
+    
+    roles:
+      member: "Member"
+      manager: "Manager"
+    members:
+      manage: "Manage members"
+      count:
+        one: "1 member"
+        other: "%{count} members"
 
     index:
       title: "Teams"
       select: "Select %{team}"
-    member_count:
-      one: "1 member"
-      other: "%{count} members"
   events:
     name: "Event Name"
     url: "Event URL"

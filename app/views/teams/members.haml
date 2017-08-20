@@ -1,0 +1,10 @@
+= render 'header', team: @team
+
+.container.content
+  .row
+    - @members.each do |user|
+      .col-4
+        .card
+          .card-body
+            %h4.card-title= user.name
+            %p.card-text.text-muted= @managers.include?(user) ? t('teams.role.manager') : t('teams.role.member')

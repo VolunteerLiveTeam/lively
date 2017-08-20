@@ -1,10 +1,20 @@
 class TeamsController < ApplicationController
 
-  before_action :get_team, only: [:select, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:index, :select, :new, :edit, :create, :update, :destroy]
+  before_action :get_team, except: [:index]
+  before_action :authenticate_user!
 
   def index
     @teams = current_user.groups
+  end
+
+  def list_members
+    @managers = @team.members.as(:manager)
+    @members = @team.members.sort {|u| @managers.include?(u) ? 0 : 1}
+    render 'members'
+  end
+
+  def update_members
+    raise "TODO"
   end
 
   def select
