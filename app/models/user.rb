@@ -51,7 +51,11 @@ class User
   end
 
   def current_team=(team)
-    Redis.current.set("user:#{id}:current_team", team.id)
+    if team.nil?
+      Redis.current.del("user:#{id}:current_team")
+    else
+      Redis.current.set("user:#{id}:current_team", team.id)
+    end
   end
 
   def can?(action, object)

@@ -23,6 +23,8 @@ en:
       manager: "Manager"
     members:
       manage: "Manage members"
+      remove: "Remove member"
+      removed: "Member removed."
       count:
         one: "1 member"
         other: "%{count} members"

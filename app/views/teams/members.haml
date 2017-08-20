@@ -8,3 +8,6 @@
           .card-body
             %h4.card-title= user.name
             %p.card-text.text-muted= @managers.include?(user) ? t('teams.role.manager') : t('teams.role.member')
+          - if current_user.can? :edit, @team
+            .card-footer
+              = link_to t('teams.members.remove'), update_members_team_path(@team, action: 'remove', user: user), method: 'post'

@@ -14,7 +14,18 @@ class TeamsController < ApplicationController
   end
 
   def update_members
-    raise "TODO"
+    authorize @team, :edit
+    raise "TODO" if params[:action] == 'add'
+
+    user = User.find(params[:user])
+    user.groups.destroy @team
+    @team.users.delete user
+
+    if user.current_team == @team
+      user.current_team = nil
+    end
+
+    redirect_to list_members_team_path(@team), notice: t('teams.members.removed')
   end
 
   def select
