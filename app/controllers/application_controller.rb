@@ -1,12 +1,17 @@
 class ApplicationController < ActionController::Base
   include ScramUtils
   helper_method :current_holder
-  
+  helper_method :current_team
+
   protect_from_forgery with: :exception
+
+  def current_team
+    current_user.try(:current_team)
+  end
 
   def select_team
     authenticate_user!
-    if current_user.current_team.nil?
+    if current_team.nil?
       redirect_to teams_path, alert: t('teams.no-selection')
     end
   end
