@@ -14,7 +14,7 @@
       = link_to t('teams.switch'), teams_path, class: 'nav-item btn btn-outline-light mr-3'
       %span.nav-item.navbar-text.text-light
         - if admin_enabled
-          %span.text-danger [A]
+          %span.badge.badge-danger= t('admin.badge')
         = current_user.display_name
     - else
       = link_to t(:sign_in), user_reddit_omniauth_authorize_path, class: 'nav-item btn btn-outline-light'
