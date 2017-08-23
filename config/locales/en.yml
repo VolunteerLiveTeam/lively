@@ -4,6 +4,12 @@
 en:
   name: "lively"
   unauthorized: "You don't have permission to do that."
+  admin:
+    enable: "Enable admin"
+    disable: "Disable admin"
+    badge: "Admin"
+    unauthorized: "You must be an administrator to do that."
+    toggled: "Toggled admin mode."
   auth:
     sign_in: "Sign in"
     sign_in_with_reddit: "Sign in with Reddit"
@@ -12,6 +18,8 @@ en:
     logo: "Logo"
     description: "Team Description"
     edit: "Edit team"
+    destroy: "Delete team"
+    confirm_destroy: "Are you sure you want to delete %{team}?"
 
     invalid: "Unable to update team:"
     no-selection: "You do not have a team selected."

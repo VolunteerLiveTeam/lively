@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   
+  # users
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
+  # teams
   resources :teams, except: [:show] do
     member do
       post :select # set user's current team
@@ -12,9 +14,13 @@ Rails.application.routes.draw do
     end
   end
 
+  # events
   root 'events#index'  
   resources :events do
     get 'go', on: :member
   end
+
+  # admin
+  post 'admin/toggle'  
   
 end

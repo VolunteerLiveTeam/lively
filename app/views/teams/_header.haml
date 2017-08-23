@@ -5,3 +5,5 @@
     - if current_user.can? :edit, team
       = link_to t('teams.edit'), edit_team_path(team), class: 'btn btn-primary'
       = link_to t('teams.members.manage'), list_members_team_path(team), class: 'btn btn-primary'
+      - if current_user.can? :destroy, team
+        = link_to t('teams.destroy'), team_path(team), class: 'btn btn-danger', method: :delete, data: {confirm: t('teams.confirm_destroy', team: team.name)}

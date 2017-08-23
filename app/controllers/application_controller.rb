@@ -2,11 +2,16 @@ class ApplicationController < ActionController::Base
   include ScramUtils
   helper_method :current_holder
   helper_method :current_team
+  helper_method :admin_enabled
 
   protect_from_forgery with: :exception
 
   def current_team
     @current_team ||= current_user.try(:current_team)
+  end
+
+  def admin_enabled
+    @admin_enabled ||= current_user.try(:admin_enabled)
   end
 
   def select_team
