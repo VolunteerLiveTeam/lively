@@ -17,7 +17,7 @@
       .col-4
         .card
           .card-body
-            %h4.card-title= user.name
+            %h4.card-title= user.display_name
             %p.card-text.text-muted= @managers.include?(user) ? t('teams.role.manager') : t('teams.role.member')
           - if current_user.can? :edit, @team
             .card-footer
