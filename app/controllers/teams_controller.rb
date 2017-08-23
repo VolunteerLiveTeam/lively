@@ -1,6 +1,6 @@
 class TeamsController < ApplicationController
 
-  before_action :get_team, except: [:index]
+  before_action :get_team, except: [:index, :new, :create]
   before_action :authenticate_user!
 
   def index
@@ -84,6 +84,9 @@ class TeamsController < ApplicationController
 
   def destroy
     authorize @team
+    @team.users.each do |user|
+      user.current_team = nil
+    end
     @team.destroy
     redirect_to teams_path
   end

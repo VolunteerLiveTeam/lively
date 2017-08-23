@@ -18,6 +18,7 @@ en:
     logo: "Logo"
     description: "Team Description"
     edit: "Edit team"
+    destroy: "Delete team"
 
     invalid: "Unable to update team:"
     no-selection: "You do not have a team selected."
