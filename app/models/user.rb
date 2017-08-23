@@ -14,6 +14,8 @@ class User
 
   field :name, type: String
   groupify :group_member
+
+  field :admin, type: Boolean, default: false
   
   # Sets up a relation where this user now stores "policy_ids". This is a one-way relationship!
   has_and_belongs_to_many :policies, class_name: "Scram::Policy"
@@ -23,6 +25,10 @@ class User
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.password = Devise.friendly_token[0,20]
       user.name = auth.info.name
+      if User.count < 1
+        user.admin = true # make first user admin
+        user.toggle_admin
+      end
     end
   end
 
@@ -45,6 +51,29 @@ class User
   end
 
   def current_team=(team)
-    Redis.current.set("user:#{id}:current_team", team.id)
+    if team.nil?
+      Redis.current.del("user:#{id}:current_team")
+    else
+      Redis.current.set("user:#{id}:current_team", team.id)
+    end
   end
+
+  def can?(action, object)
+    return true if admin_enabled
+    super(action, object)
+  end
+
+  def admin_enabled
+    Redis.current.get("user:#{id}:admin_enabled") == "true"
+  end
+
+  def toggle_admin
+    state = admin_enabled
+    if state.nil?
+      Redis.current.set("user:#{id}:admin_enabled", true)     
+    else
+      Redis.current.set("user:#{id}:admin_enabled", !state)
+    end
+  end
+
 end

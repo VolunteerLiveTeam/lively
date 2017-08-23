@@ -10,6 +10,9 @@
   .navbar-nav
     - if user_signed_in?
       = link_to t('teams.switch'), teams_path, class: 'nav-item btn btn-outline-light mr-3'
-      %span.nav-item.navbar-text.text-light= current_user.display_name
+      %span.nav-item.navbar-text.text-light
+        - if current_user.admin_enabled
+          %span.text-danger [A]
+        = current_user.display_name
     - else
       = link_to t(:sign_in), user_reddit_omniauth_authorize_path, class: 'nav-item btn btn-outline-light'
