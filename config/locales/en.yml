@@ -23,8 +23,12 @@ en:
       manager: "Manager"
     members:
       manage: "Manage members"
+      add: "Add member"
+      add_manager: "Add manager"
+      missing: "Could not find user."
+      added: "Added %{user} to %{team}."
       remove: "Remove member"
-      removed: "Member removed."
+      removed: "Removed %{user} from %{team}."
       count:
         one: "1 member"
         other: "%{count} members"

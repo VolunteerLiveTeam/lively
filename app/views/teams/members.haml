@@ -2,6 +2,16 @@
 
 .container.content
   .row
+    .col-4
+      .card
+        = form_tag add_member_team_path(@team), method: :post do
+          .card-body
+            .input-group
+              %span.input-group-addon /u/
+              = text_field_tag :user, '', class: 'form-control'
+          .card-footer
+            = submit_tag t('teams.members.add'), class: 'btn btn-primary', name: 'member'
+            = submit_tag t('teams.members.add_manager'), class: 'btn btn-danger', name: 'manager'
     - @members.each do |user|
       .col-4
         .card

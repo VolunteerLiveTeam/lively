@@ -15,7 +15,22 @@ class TeamsController < ApplicationController
 
   def add_member
     authorize @team, :edit
-    raise "TODO"
+    role = params[:member].nil? ? :manager : :member
+    user = User.where(name: params[:user]).first
+    if user.nil?
+      redirect_to list_members_team_path(@team), notice: t('teams.members.missing')
+    else
+      # clear any existing membership to this team
+      user.groups.destroy @team
+      @team.users.delete user
+      
+      if role == :member
+        @team.add user
+      else
+        @team.add user, as: role
+      end
+      redirect_to list_members_team_path(@team), notice: t('teams.members.added', user: user.display_name, team: @team.name)
+    end
   end
 
   def remove_member
@@ -29,7 +44,7 @@ class TeamsController < ApplicationController
       user.current_team = nil
     end
 
-    redirect_to list_members_team_path(@team), notice: t('teams.members.removed')
+    redirect_to list_members_team_path(@team), notice: t('teams.members.removed', user: user.display_name, team: @team.name)
   end
 
   def select
