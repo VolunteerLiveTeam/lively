@@ -4,6 +4,11 @@
 en:
   name: "lively"
   unauthorized: "You don't have permission to do that."
+  admin:
+    enable: "Enable admin"
+    disable: "Disable admin"
+    unauthorized: "You must be an administrator to do that."
+    toggled: "Toggled admin mode."
   auth:
     sign_in: "Sign in"
     sign_in_with_reddit: "Sign in with Reddit"

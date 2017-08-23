@@ -9,9 +9,11 @@
 
   .navbar-nav
     - if user_signed_in?
+      - if current_user.admin
+        = link_to t(admin_enabled ? 'admin.disable' : 'admin.enable'), admin_toggle_path, class: 'nav-item btn btn-outline-light mr-3', method: :post
       = link_to t('teams.switch'), teams_path, class: 'nav-item btn btn-outline-light mr-3'
       %span.nav-item.navbar-text.text-light
-        - if current_user.admin_enabled
+        - if admin_enabled
           %span.text-danger [A]
         = current_user.display_name
     - else
