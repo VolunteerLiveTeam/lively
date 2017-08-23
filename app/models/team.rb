@@ -4,6 +4,11 @@ class Team
   include Scram::DSL::ModelConditions
 
   field :name, type: String
+  validates :name, presence: true, length: { maximum: 32 }
+
+  field :description, type: String
+  validates :description, presence: true, length: { minimum: 16, maximum: 120 }
+  
   groupify :group, members: :users
 
   has_mongoid_attached_file :logo, styles: {

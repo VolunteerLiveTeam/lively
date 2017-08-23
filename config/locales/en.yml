@@ -3,20 +3,35 @@
 
 en:
   name: "lively"
+  unauthorized: "You don't have permission to do that."
   auth:
     sign_in: "Sign in"
     sign_in_with_reddit: "Sign in with Reddit"
   teams:
     name: "Team Name"
-    index:
-      title: "Teams"
-      select: "Select %{team}"
+    logo: "Logo"
+    description: "Team Description"
+    edit: "Edit team"
+
+    invalid: "Unable to update team:"
     no-selection: "You do not have a team selected."
     switched: "Switched to %{team}."
     switch: "Switch team"
-    member_count:
-      one: "1 member"
-      other: "%{count} members"
+    
+    roles:
+      member: "Member"
+      manager: "Manager"
+    members:
+      manage: "Manage members"
+      remove: "Remove member"
+      removed: "Member removed."
+      count:
+        one: "1 member"
+        other: "%{count} members"
+
+    index:
+      title: "Teams"
+      select: "Select %{team}"
   events:
     name: "Event Name"
     url: "Event URL"
@@ -24,7 +39,7 @@ en:
     reddit_id: "Reddit Thread ID"
     image: "Image"
 
-    invalid: "Unable to create event."
+    invalid: "Unable to update event:"
     redirect: "Click here if you aren't redirected automatically."
 
     create: "Create event"

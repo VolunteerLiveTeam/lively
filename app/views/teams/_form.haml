@@ -1,8 +1,19 @@
+- if @team.errors.any?
+  .alert.alert-warning
+    = t('teams.invalid')
+    %ul
+      - @event.errors.full_messages.each do |error|
+        %li= error
+
 = form_for @team do |f|
-  = f.label :name
-  = f.text_field :name, placeholder: t('teams.name')
+  .form-group
+    = f.label :name, t('teams.name')
+    = f.text_field :name, class: 'form-control'
+  .form-group
+    = f.label :logo, t('teams.logo')
+    = f.file_field :logo, class: 'form-control'
+  .form-group
+    = f.label :description, t('teams.description')
+    = f.text_area :description, class: 'form-control'
 
-  = f.label :logo
-  = f.file_field :logo
-
-  = f.submit
+  = f.submit class: 'btn btn-primary'

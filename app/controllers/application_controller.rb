@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
   rescue_from ScramUtils::NotAuthorizedError do |exception|
     respond_to do |format|
       format.json { head :forbidden }
-      format.html { redirect_to root_path, :alert => "You are not authorized to perform that action at this time. Please try signing in!" }
+      format.html { redirect_to root_path, :alert => t('unauthorized') }
     end
   end
 
