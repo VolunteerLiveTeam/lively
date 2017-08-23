@@ -19,6 +19,7 @@ en:
     description: "Team Description"
     edit: "Edit team"
     destroy: "Delete team"
+    confirm_destroy: "Are you sure you want to delete %{team}?"
 
     invalid: "Unable to update team:"
     no-selection: "You do not have a team selected."
