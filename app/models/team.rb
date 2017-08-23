@@ -17,7 +17,7 @@ class Team
   }
   validates_attachment :logo, content_type: { content_type: ["image/png"] }
 
-  has_many :events
+  has_many :events, dependent: :destroy
 
   scram_define do
     condition :members do |team|
