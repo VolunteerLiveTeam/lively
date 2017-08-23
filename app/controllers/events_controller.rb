@@ -8,14 +8,14 @@ class EventsController < ApplicationController
   end
 
   def index
-    @events = current_user.current_team.events
+    @events = current_team.events
   end
 
   def show
   end
 
   def new
-    @event = Event.new(team: current_user.current_team)
+    @event = Event.new(team: current_team)
     authorize @event
   end
 
@@ -24,7 +24,7 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = Event.new(params.require(:event).permit(:name, :url, :description, :reddit_id, :image).merge!(team: current_user.current_team))
+    @event = Event.new(params.require(:event).permit(:name, :url, :description, :reddit_id, :image).merge!(team: current_team))
     authorize @event
     if @event.save
       redirect_to @event
@@ -50,7 +50,7 @@ class EventsController < ApplicationController
 
   private
     def get_event
-      @event = Event.find(params[:id])      
+      @event = Event.find(params[:id])
     end
 
 end
