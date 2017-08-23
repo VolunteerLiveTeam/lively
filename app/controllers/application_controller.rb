@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def current_team
-    current_user.try(:current_team)
+    @current_team ||= current_user.try(:current_team)
   end
 
   def select_team
