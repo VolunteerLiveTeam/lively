@@ -1,5 +1,6 @@
 class Event
   include Mongoid::Document
+  include Mongoid::Timestamps
   include Mongoid::Slug
   include Mongoid::Paperclip
   include Scram::DSL::ModelConditions
@@ -25,7 +26,7 @@ class Event
     :social => ['952x498#', :png]
   }
   validates_attachment :image, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png"] }
-  
+
   scram_define do
     condition :members do |event|
       event.team.send("*members")

@@ -2,7 +2,7 @@
 
 .container.content
   .row
-    - @events.each do |event|
+    - @events.order_by(:created_at => :desc).each do |event|
       .col-12
         .card.event-card
           .card-body
