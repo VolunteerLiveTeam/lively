@@ -6,6 +6,7 @@ class Event
   include Scram::DSL::ModelConditions
 
   belongs_to :team
+  belongs_to :creator, class_name: 'User'
 
   field :name, type: String
   validates :name, presence: true, length: { maximum: 120 }

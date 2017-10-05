@@ -3,7 +3,12 @@
 
 en:
   name: "lively"
+
   unauthorized: "You don't have permission to do that."
+
+  no_user: "an unknown user"
+  no_time: "an unknown time"
+
   admin:
     enable: "Enable admin"
     disable: "Disable admin"
@@ -52,6 +57,8 @@ en:
     description: "Event Description"
     reddit_id: "Reddit Thread ID"
     image: "Image"
+
+    detail: "Created by %{creator} %{time} ago."
 
     invalid: "Unable to update event:"
     redirect: "Click here if you aren't redirected automatically."

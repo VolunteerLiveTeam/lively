@@ -2,6 +2,12 @@
 
 .container.content
   .row
+    .col-12
+      .card.event-card.creation-card.text-center
+        .card-body
+          - if @events.empty?
+            %center= t('events.none')
+          = link_to t('events.create'), new_event_path, class: 'btn btn-primary'
     - @events.order_by(:created_at => :desc).each do |event|
       .col-12
         .card.event-card
@@ -10,9 +16,4 @@
               %h4.card-title= event.name
             %p.card-text= event.description
             = link_to t('events.view_reddit'), event.reddit_url, class: 'card-link'
-    .col-12
-      .card.creation-card.text-center
-        .card-body
-          - if @events.empty?
-            %center= t('events.none')
-          = link_to t('events.create'), new_event_path, class: 'btn btn-primary'
+          .card-footer.text-muted= detail_for_event(event)
