@@ -23,7 +23,7 @@ class TeamsController < ApplicationController
       # clear any existing membership to this team
       user.groups.destroy @team
       @team.users.delete user
-      
+
       if role == :member
         @team.add user
       else
@@ -97,7 +97,7 @@ class TeamsController < ApplicationController
     end
 
     def team_params
-      params.require(:team).permit(:name, :logo, :description)
+      params.require(:team).permit(:name, :logo, :color, :description)
     end
 
 end

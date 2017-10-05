@@ -16,6 +16,7 @@ en:
   teams:
     name: "Team Name"
     logo: "Logo"
+    color: "Theme Color"
     description: "Team Description"
     edit: "Edit team"
     destroy: "Delete team"
@@ -25,7 +26,7 @@ en:
     no-selection: "You do not have a team selected."
     switched: "Switched to %{team}."
     switch: "Switch team"
-    
+
     roles:
       member: "Member"
       manager: "Manager"

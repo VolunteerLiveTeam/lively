@@ -13,6 +13,9 @@
     = f.label :logo, t('teams.logo')
     = f.file_field :logo, class: 'form-control'
   .form-group
+    = f.label :color, t('teams.color')
+    = f.text_field :color, class: 'form-control'
+  .form-group
     = f.label :description, t('teams.description')
     = f.text_area :description, class: 'form-control'
 

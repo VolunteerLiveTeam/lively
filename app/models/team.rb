@@ -8,7 +8,10 @@ class Team
 
   field :description, type: String
   validates :description, presence: true, length: { minimum: 16, maximum: 120 }
-  
+
+  field :color, type: String, default: '343A40'
+  validates :color, presence: true, length: { is: 6 }
+
   groupify :group, members: :users
 
   has_mongoid_attached_file :logo, styles: {

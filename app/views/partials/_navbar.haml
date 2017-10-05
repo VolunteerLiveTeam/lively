@@ -1,10 +1,10 @@
-%nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.justify-content-between
+%nav.navbar.navbar-expand-lg.navbar-dark.justify-content-between{:style => "background: ##{current_team.try(:color) || '343A40'};"}
   .navbar-nav
     - if current_team.nil?
       %a.navbar-brand{:href => "/"}= t(:name)
     - else
       = link_to root_path, class: 'navbar-brand' do
-        %img.rounded.align-top.mr-1{src: current_team.logo.url(:icon), width: 30, height: 30}
+        %img.team-icon.rounded.align-top.mr-1{src: current_team.logo.url(:icon), width: 30, height: 30}
         = current_team.name
 
   .navbar-nav
