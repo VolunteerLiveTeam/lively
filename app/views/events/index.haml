@@ -2,12 +2,13 @@
 
 .container.content
   .row
-    .col-12
-      .card.event-card.creation-card.text-center
-        .card-body
-          - if @events.empty?
-            %center= t('events.none')
-          = link_to t('events.create'), new_event_path, class: 'btn btn-primary'
+    - if current_user.can? :create, Event.new(team: current_team)
+      .col-12
+        .card.event-card.creation-card.text-center
+          .card-body
+            - if @events.empty?
+              %center= t('events.none')
+            = link_to t('events.create'), new_event_path, class: 'btn btn-primary'
     - @events.order_by(:created_at => :desc).each do |event|
       .col-12
         .card.event-card
