@@ -1,8 +1,6 @@
 = render 'teams/header', team: current_team
 
 .container.content
-  - if @events.empty?
-    %center There are no events in your team.
   .row
     - @events.each do |event|
       .col-12
@@ -15,4 +13,6 @@
     .col-12
       .card.creation-card.text-center
         .card-body
+          - if @events.empty?
+            %center= t('events.none')
           = link_to t('events.create'), new_event_path, class: 'btn btn-primary'

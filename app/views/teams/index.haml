@@ -1,6 +1,6 @@
 .container.content
   - if @teams.empty?
-    %center Looks like you're not part of any teams. Ask an administrator to invite you.
+    %center= t('teams.none')
   .row
     - @teams.each do |team|
       .col-4

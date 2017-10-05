@@ -24,6 +24,7 @@ en:
 
     invalid: "Unable to update team:"
     no-selection: "You do not have a team selected."
+    none: "Looks like you're not part of any teams. Ask an administrator to invite you."
     switched: "Switched to %{team}."
     switch: "Switch team"
 
@@ -54,6 +55,7 @@ en:
 
     invalid: "Unable to update event:"
     redirect: "Click here if you aren't redirected automatically."
+    none: "Your team has no events."
 
     create: "Create event"
     edit: "Edit event"
