@@ -20,7 +20,7 @@ class Event
 
   # ID of the live thread on Reddit
   field :reddit_id, type: String
-  validates :reddit_id, presence: true, length: { is: 12 }
+  validates :reddit_id, presence: true, length: { minimum: 12 }
 
   has_mongoid_attached_file :image, styles: {
     :original => ['1920x1680>', :jpg],
